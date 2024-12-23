@@ -18,7 +18,7 @@ public static class DueDateCalculator
         int month = dt.Month;
         int year = dt.Year;
 
-        return new DateOnly(year, month, 1).AddMonths(1);
+        return new DateOnly(year, month, 1).AddMonths(1).AddDays(-1);
     }
 
 
@@ -35,11 +35,11 @@ public static class DueDateCalculator
                         return DateOnly.FromDateTime(DateTime.Today.AddDays(90));
                         break;
                     case DueOn.FirstDayOfNextMonth:
-                        return GetFirstDayOfMonth(DateTime.Today);
+                        return GetFirstDayOfMonth(DateTime.Today.AddMonths(1));
                         break;
                     case DueOn.LastDayOfNextMonth:
                     default:
-                        return GetLastDayOfMonth(DateTime.Today);
+                        return GetLastDayOfMonth(DateTime.Today.AddMonths(1));
                         break;
                 }
             }

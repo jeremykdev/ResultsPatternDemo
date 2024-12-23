@@ -25,7 +25,7 @@ public partial class Form1 : Form
         }
         else if (this.rdoNumberOfDaysFromToday.Checked)
         {
-            if (Int32.TryParse(this.txtNumberOfDays.Text.Trim(), out var days)
+            if (Int32.TryParse(this.txtNumberOfDays.Text.Trim(), out var days))
                 date = DueDateCalculator.GetDueDate(days);
             else
                 this.lblResult.Text = "Please enter number of days";

@@ -131,10 +131,10 @@
             rdoFirstDayOfNextMonth.AutoSize = true;
             rdoFirstDayOfNextMonth.Location = new Point(16, 49);
             rdoFirstDayOfNextMonth.Name = "rdoFirstDayOfNextMonth";
-            rdoFirstDayOfNextMonth.Size = new Size(156, 19);
+            rdoFirstDayOfNextMonth.Size = new Size(151, 19);
             rdoFirstDayOfNextMonth.TabIndex = 1;
             rdoFirstDayOfNextMonth.TabStop = true;
-            rdoFirstDayOfNextMonth.Text = "First Day of Next Month\\";
+            rdoFirstDayOfNextMonth.Text = "First Day of Next Month";
             rdoFirstDayOfNextMonth.UseVisualStyleBackColor = true;
             // 
             // rdo90Days
