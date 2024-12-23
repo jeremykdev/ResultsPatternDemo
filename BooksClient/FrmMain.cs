@@ -74,21 +74,31 @@ public partial class FrmMain : Form
         if (rdoGetAllBooks.Checked)
         {
             var result = await this.ardalisResultApiClient.GetAllBooks();
-            
+
             if (result.IsSuccess)
+            {
+
                 output = ToJson(result.Value);
+            }
             else
-                output = result.Status.ToString();
+            {
+
+                if (result.Errors != null && result.Errors.Any())
+                    output = String.Join("\r\n", [result.Status, .. result.Errors]);
+                else
+                    output = result.Status.ToString();
+            }
         }
         else
         {
             var result = await this.ardalisResultApiClient.GetBookById(this.txtBookId.Text);
-           
-            if (result.IsSuccess)
-                output = ToJson(result.Value);
-            else           
+
+
+            if (result.Errors != null && result.Errors.Any())
+                output = String.Join("\r\n", [result.Status, .. result.Errors]);
+            else
                 output = result.Status.ToString();
-               
+
         }
 
         this.txtOutput.Text = output;

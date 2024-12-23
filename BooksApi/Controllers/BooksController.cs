@@ -25,6 +25,20 @@ public class BooksController : Controller
 
         // use id = "ERROR" (case insensitive)
         // to simulate an internal server error
+
+        switch(id.Trim().ToUpper())
+        {
+            case "ERROR":
+            case "500":
+                return StatusCode(StatusCodes.Status500InternalServerError);
+                break;
+
+            case "AUTH":
+            case "401":
+                return Unauthorized();
+                break;
+        }
+
         if (id.Trim().Equals("ERROR", StringComparison.OrdinalIgnoreCase))
             return StatusCode(StatusCodes.Status500InternalServerError);
 

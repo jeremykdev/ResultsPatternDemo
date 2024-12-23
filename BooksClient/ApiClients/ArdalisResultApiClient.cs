@@ -48,9 +48,9 @@ public class ArdalisResultApiClient : BaseApiClient
     protected Result GetResultFromHttpStatusCode(HttpStatusCode? statusCode) =>
         statusCode switch
         {
-            HttpStatusCode.NotFound => Result.NotFound(),
-            HttpStatusCode.InternalServerError => Result.Error(),
-            HttpStatusCode.Unauthorized => Result.Unauthorized(),
+            HttpStatusCode.NotFound => Result.NotFound("No matching record(s) found"),
+            HttpStatusCode.InternalServerError => Result.Error("Internal server error"),
+            HttpStatusCode.Unauthorized => Result.Unauthorized("Login invalid, please try logging in again"),
             _ => Result.Error(),
         };
     
