@@ -10,7 +10,7 @@ public class NaiveApiClient : BaseApiClient
         try
         {
             Uri uri = this.BuildUriForGetAllBooks();
-            var books = await this._httpClient.GetFromJsonAsync<Book[]>(uri);
+            Book[]? books = await this._httpClient.GetFromJsonAsync<Book[]>(uri);
             return books;
         }
         catch (Exception ex) 
@@ -25,7 +25,7 @@ public class NaiveApiClient : BaseApiClient
         try
         {
             Uri uri = this.BuildUriForGetById(id);
-            var book = await this._httpClient.GetFromJsonAsync<Book>(uri);
+            Book? book = await this._httpClient.GetFromJsonAsync<Book>(uri);
             return book;
         }
         catch (Exception ex)
